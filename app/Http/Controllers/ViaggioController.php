@@ -29,8 +29,6 @@ class ViaggioController extends Controller
     }
 
 
-
-
     public function store(Request $request)
     {
         $request->validate([
@@ -45,17 +43,6 @@ class ViaggioController extends Controller
         $viaggio->paesi()->attach($request->paesi);
 
         return response()->json($viaggio->load('paesi'), 201);
-    }
-
-    public function show($id)
-    {
-        $viaggio = Viaggio::with('paesi')->find($id);
-
-        if (!$viaggio) {
-            return response()->json(['message' => 'Viaggio non trovato'], 404);
-        }
-
-        return response()->json($viaggio, 200);
     }
 
 
