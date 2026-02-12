@@ -11,18 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('viaggi_paesi', function (Blueprint $table) {
-            $table->foreignId('paese_id')->constrained('paesis');
-            $table->foreignId('viaggio_id')->constrained('viaggis');
-            $table->primary(['paese_id', 'viaggio_id']);
+        Schema::create('paesi', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome')->unique();
+            $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('viaggi_paesi');
+        Schema::dropIfExists('paesi');
     }
 };

@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class viaggi extends Model
+class Viaggio extends Model
 {
+    protected $table = 'viaggi';
+
     protected $fillable = ['posti_disponibili'];
 
     public function paesi()
     {
-        return $this->belongsToMany(paesi::class);
+        return $this->belongsToMany(Paese::class, 'paese_viaggio');
     }
 }

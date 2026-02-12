@@ -10,19 +10,19 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('paesis', function (Blueprint $table) {
-            $table->id();
-             $table->string('nome')->unique();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('viaggi', function (Blueprint $table) {
+        $table->id();
+        $table->integer('posti_disponibili');
+        $table->timestamps();
+    });
+}
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('paesis');
+        Schema::dropIfExists('viaggi');
     }
 };
